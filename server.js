@@ -2,11 +2,18 @@ const express = require("express");
 const sql = require("mssql");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const path = require("path");
+
 
 const connectDB = require("./testDB");
 
 const app = express();
 const PORT = 3000;
+
+//Configurar Express para usar EJS
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
 
 
 //Middleware
@@ -16,14 +23,23 @@ app.use(bodyParser.urlencoded({ extended: true}));
 
 
 
+// Rutas
+app.get("/", (req, res) => {
+  res.render("index"); // renderiza views/index.ejs
+});
 
-//Rutas para guardar mensajes de contacto
 
-//me sirve para poder acceder a mi pagina desde el link de la terminal, donde accede al index, script, css, imagenes
-const path = require("path");
-// servir archivos estáticos (como index.html, scripts.js, css, imágenes) me muestra mi pagina 
-app.use(express.static(path.join(__dirname, "public")));
+app.get("/contacto", (req, res) => {
+  res.render("contacto");
+});
 
+app.get("/proyectos", (req, res) => {
+  res.render("proyectos");
+});
+
+app.listen(PORT, () => {
+  console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+});
 
 
 // Test de conexión (listar tablas)
