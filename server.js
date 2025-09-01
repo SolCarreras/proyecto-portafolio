@@ -3,16 +3,25 @@ const sql = require("mssql");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
+const expressLayouts = require("express-ejs-layouts");
 
-
+//conexion con la base de datos-ruta
 const connectDB = require("./testDB");
 
 const app = express();
 const PORT = 3000;
 
-//Configurar Express para usar EJS
-app.set("view engine", "ejs");
+
+// 📌 Le decimos dónde están las vistas EJS
 app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
+// 📌 Archivos estáticos (CSS, JS, imágenes)
+app.use(express.static(path.join(__dirname, "public")));
+
+// archivo base layout.ejs
+app.use(expressLayouts);
+app.set("layout", "layout"); 
 
 
 
@@ -25,16 +34,16 @@ app.use(bodyParser.urlencoded({ extended: true}));
 
 // Rutas
 app.get("/", (req, res) => {
-  res.render("index"); // renderiza views/index.ejs
+  res.render("index", { title: "Inicio" }); // renderiza views/index.ejs
 });
 
 
 app.get("/contacto", (req, res) => {
-  res.render("contacto");
+  res.render("contacto",{ title: "Contacto" });
 });
 
 app.get("/proyectos", (req, res) => {
-  res.render("proyectos");
+  res.render("proyectos", { title: "Proyectos" });
 });
 
 app.listen(PORT, () => {
