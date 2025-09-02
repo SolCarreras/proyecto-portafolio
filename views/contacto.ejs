@@ -1,10 +1,20 @@
-<h2>Contacto</h2>
-<form action="/contacto" method="post">
-  <label for="nombre">Nombre:</label>
-  <input type="text" id="nombre" name="nombre" required>
+<!-- Incluimos Font Awesome (poner esto en tu <head>) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <label for="mensaje">Mensaje:</label>
-  <textarea id="mensaje" name="mensaje" required></textarea>
+<section id="contacto">
+  <h2>Contacto</h2>
+  <form action="/contacto" method="post">
+    
+    <div class="input-group">
+      <i class="fa-solid fa-user"></i>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+    </div>
 
-  <button type="submit">Enviar</button>
-</form>
+    <div class="input-group">
+      <i class="fa-solid fa-comment-dots"></i>
+      <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje..." required></textarea>
+    </div>
+
+    <button type="submit"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
+  </form>
+</section>
