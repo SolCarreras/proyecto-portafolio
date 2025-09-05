@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
 
 
 
-// Rutas
+// Rutas ---usando layout debo usar title: y asignarle la ruta.
 app.get("/", (req, res) => {
   res.render("index", { title: "Inicio" }); // renderiza views/index.ejs
 });
@@ -44,6 +44,18 @@ app.get("/contacto", (req, res) => {
 
 app.get("/proyectos", (req, res) => {
   res.render("proyectos", { title: "Proyectos" });
+});
+// Rutas de cada proyecto
+app.get("/proyecto1", (req, res) => {
+  res.render("proyecto1", { title: "Proyectos1" });
+});
+
+app.get("/proyecto2", (req, res) => {
+  res.render("proyecto2", { title: "Proyectos2" });
+});
+
+app.get("/proyecto3", (req, res) => {
+  res.render("proyecto3", { title: "Proyectos3" });
 });
 
 app.listen(PORT, () => {

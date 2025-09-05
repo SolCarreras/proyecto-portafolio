@@ -185,7 +185,7 @@ main:has(#contacto) {
 
 /* Formulario */
 #contacto form {
-  max-width: 450px;
+  max-width: 470px;
   width: 200%;
   background: #fff;
   padding: 1rem;
