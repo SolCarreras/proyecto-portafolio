@@ -158,7 +158,20 @@ main {
 }
 
 
-/* Contenedor de formulario */
+/* Sección de contacto */
+#contacto {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--color-fondo);
+}
+
+#contacto h2 {
+  font-size: 2rem;
+  color: var(--color-principal);
+  margin-bottom: 1.5rem;
+}
+
+/* Formulario */
 form {
   max-width: 500px;
   margin: 0 auto;
@@ -168,39 +181,31 @@ form {
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
 }
 
-/* Grupo de input con icono */
-.input-group {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.input-group i {
-  position: absolute;
-  left: 15px;
-  color: var(--color-principal);
-  font-size: 1.2rem;
+/* Etiquetas */
+form label {
+  text-align: left;
+  font-weight: 500;
+  color: var(--color-texto);
+  margin-bottom: 0.3rem;
 }
 
 /* Inputs y textarea */
-.input-group input,
-.input-group textarea {
-  width: 100%;
-  padding: 0.8rem 0.8rem 0.8rem 2.5rem;
+form input,
+form textarea {
+  padding: 0.8rem;
   border: 1px solid #ddd;
   border-radius: 10px;
   font-size: 1rem;
   outline: none;
   transition: 0.3s;
   font-family: inherit;
-  resize: none;
 }
 
-.input-group input:focus,
-.input-group textarea:focus {
+form input:focus,
+form textarea:focus {
   border-color: var(--color-principal);
   box-shadow: 0 0 8px rgba(108, 99, 255, 0.3);
 }
@@ -215,18 +220,12 @@ form button {
   font-size: 1rem;
   cursor: pointer;
   transition: 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
 }
 
 form button:hover {
   background: var(--color-secundario);
   transform: translateY(-2px);
 }
-
-
 
 
 /* Footer fijo abajo */
