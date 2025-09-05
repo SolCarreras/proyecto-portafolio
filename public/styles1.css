@@ -8,12 +8,15 @@
   --color-texto: #333;
   --color-nav: #ffffff;
   --color-footer: #222;
-
-  --h-header: 72px; /* altura aproximada del header */
-  --h-footer: 56px; /* altura aproximada del footer */
+}
+:root{
+  --h-header: 72px;
+  --h-footer: 56px;
 }
 
+
 /* El contenido principal ocupa el espacio restante */
+
 * {
   margin: 0;
   padding: 0;
@@ -25,8 +28,9 @@ body {
   background-color: var(--color-fondo);
   color: var(--color-texto);
   line-height: 1.6;
-  padding-bottom: var(--h-footer); /* evita que el footer tape contenido */
 }
+/* Evita que el footer fijo tape contenido */
+body{ padding-bottom: var(--h-footer); }
 
 /* Header y navegación */
 header {
@@ -40,14 +44,14 @@ header {
 
 nav {
   display: flex;
-  flex-direction: row;     /* los pone en fila (horizontal) */
-  justify-content: flex-end;
-  align-items: center;     /* corregido: centrado vertical */
-  gap: 1.5rem;
+  flex-direction: row;     /* 🔹 los pone en fila (horizontal) */
+  justify-content:flex-end; /* 🔹 centrados dentro del nav */
+  align-items: right;     /* 🔹 alineados verticalmente */
+  gap: 1.5rem;             /* 🔹 separación entre enlaces */
 }
 
 nav a {
-  display: inline-block;
+  display: inline-block;   /* 🔹 aseguramos que no se comporten como bloque */
   text-decoration: none;
   color: var(--color-principal);
   font-weight: 500;
@@ -59,10 +63,12 @@ nav a:hover {
   transform: translateY(-2px);
 }
 
+
 /* Sección Sobre mí */
 main {
   padding: 8rem;
   text-align: center;
+
 }
 
 #sobre-mi h1 {
@@ -115,7 +121,7 @@ main {
 
 .proyectos h2 {
   font-size: 2rem;
-  color: var(--color-principal);
+  color: var(--color-primario);
   margin-bottom: 1.5rem;
 }
 
@@ -156,47 +162,55 @@ main {
   background: #5148d6;
 }
 
-/* Sección de contacto */
-main:has(#contacto) {
-  padding: 0; /* anula el padding grande en Contacto */
-  min-height: calc(100vh - var(--h-header) - var(--h-footer));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 /* Sección de contacto */
-#contacto {
-  min-height: calc(100vh - var(--h-header) - var(--h-footer)); /* ocupa pantalla completa menos header y footer */
+
+/* Solo en la página de Contacto: anula el padding grande del main
+   y centra todo a pantalla descontando header+footer */
+main:has(#contacto){
+  padding: 0; /* anula el padding: 8rem del main global en Contacto */
+  min-height: calc(100vh - var(--h-header) - var(--h-footer));
+}
+
+#contacto 
+{
+  min-height: calc(100vh - 120px); /* resta nav + footer aprox 
   display: flex;
-  flex-direction: column;   /* h2 arriba y form debajo */
-  justify-content: center;  /* centra verticalmente */
-  align-items: center;      /* centra horizontalmente */
-  gap: 1.5rem;              /* espacio entre título y formulario */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
   background: var(--color-fondo);
   padding: 1rem;
+  } 
+
+#contacto{
+  width: 100%;
+  max-width: 720px;
+  padding: 1rem;
+  display: grid;
+  grid-auto-rows: max-content;
+  gap: 1rem;
+  background: var(--color-fondo);
 }
+
 
 #contacto h2 {
   font-size: 2rem;
   color: var(--color-principal);
-  margin: 0; /* eliminamos margen extra */
+  margin: 0;                      /* quitamos margen extra */
 }
 
-/* Formulario */
-#contacto form {
+/* Form más compacto para que quepa entero */
+#contacto form{
   max-width: 450px;
-  width: 200%;
-  background: #fff;
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  width: 100%;
+  max-height: 65vh;    /* se adapta a pantallas chicas */
+  overflow-y: auto;    /* si no entra, solo scrollea el form */
+  padding: 1.25rem;
 }
 
-
+/* Etiquetas */
 form label {
   text-align: left;
   font-weight: 500;
@@ -204,6 +218,7 @@ form label {
   margin-bottom: 0.3rem;
 }
 
+/* Inputs y textarea */
 form input,
 form textarea {
   padding: 0.8rem;
@@ -221,6 +236,7 @@ form textarea:focus {
   box-shadow: 0 0 8px rgba(108, 99, 255, 0.3);
 }
 
+/* Botón */
 form button {
   background: var(--color-principal);
   color: white;
@@ -237,6 +253,7 @@ form button:hover {
   transform: translateY(-2px);
 }
 
+
 /* Footer fijo abajo */
 footer {
   background: var(--color-footer);
@@ -251,13 +268,15 @@ footer {
   width: 100%;
 }
 
+
+
 /* Responsive */
 @media (max-width: 600px) {
-  .menu {
-    flex-direction: column;
-  }
+    .menu {
+        flex-direction: column;
+    }
 
-  .menu li {
-    margin: 10px 0;
-  }
+    .menu li {
+        margin: 10px 0;
+    }
 }
