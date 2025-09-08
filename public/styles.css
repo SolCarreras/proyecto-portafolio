@@ -237,6 +237,55 @@ form button:hover {
   transform: translateY(-2px);
 }
 
+.proyecto {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.productos {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.producto {
+  background: #f9f9fb;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 150px;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.producto button {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--color-principal);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.producto button:hover {
+  background: var(--color-secundario);
+}
+
+.clima {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #f1f1f1;
+}
+
+
 /* Footer fijo abajo */
 footer {
   background: var(--color-footer);

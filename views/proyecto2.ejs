@@ -1,9 +1,30 @@
+<section class="proyecto">
+  <h1>🛒 Tienda Online</h1>
 
-    <h1>🛒 Tienda Online</h1>
-    <h2>Productos</h2>
-    <ul>
-      <li>👟 Zapatillas - $50</li>
-      <li>👕 Camiseta - $20</li>
-      <li>🎒 Mochila - $35</li>
-    </ul>
+  <div class="productos">
+    <div class="producto">
+      <h3>👟 Zapatillas</h3>
+      <p>$50</p>
+      <button onclick="agregarAlCarrito('Zapatillas', 50)">Agregar</button>
+    </div>
+    <div class="producto">
+      <h3>👕 Camiseta</h3>
+      <p>$20</p>
+      <button onclick="agregarAlCarrito('Camiseta', 20)">Agregar</button>
+    </div>
+    <div class="producto">
+      <h3>🎒 Mochila</h3>
+      <p>$35</p>
+      <button onclick="agregarAlCarrito('Mochila', 35)">Agregar</button>
+    </div>
+  </div>
 
+  <h2>🛍 Tu Carrito</h2>
+  <ul id="carrito"></ul>
+  <p>Total: $<span id="total">0</span></p>
+  <button onclick="finalizarCompra()">Finalizar compra</button>
+
+  <a href="/proyectos" class="btn-volver">⬅ Volver</a>
+</section>
+
+<script src="/js/tienda.js"></script>
